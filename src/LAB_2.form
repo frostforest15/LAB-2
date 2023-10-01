@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="LAB_2">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="0">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="1033" height="600"/>
+    </constraints>
+    <properties>
+      <foreground color="-8146303"/>
+      <minimumSize width="1033" height="600"/>
+      <preferredSize width="1033" height="600"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="cc130" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="25" left="25" bottom="25" right="25"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="507" height="498"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-4989535"/>
+          <foreground color="-11475646"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <scrollpane id="c6ee8">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <opaque value="true"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="4fb7f" class="javax.swing.JTable" binding="table1" default-binding="true">
+                <constraints/>
+                <properties/>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </grid>
+      <grid id="e27a1" binding="Footer" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="85"/>
+            <preferred-size width="-1" height="85"/>
+            <maximum-size width="-1" height="85"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-4989535"/>
+          <foreground color="-8146303"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="9f937" class="javax.swing.JButton" binding="button1" default-binding="true">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-8146303"/>
+              <borderPainted value="false"/>
+              <enabled value="true"/>
+              <focusPainted value="false"/>
+              <opaque value="true"/>
+              <text value="Button"/>
+            </properties>
+          </component>
+          <component id="ec109" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="0"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-8146303"/>
+              <opaque value="false"/>
+              <requestFocusEnabled value="true"/>
+            </properties>
+          </component>
+          <component id="3cd67" class="javax.swing.JFormattedTextField" binding="formattedTextField1" default-binding="true">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="0"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-8146303"/>
+              <caretColor color="-6564199"/>
+              <opaque value="false"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="bfaf4" binding="Header" layout-manager="GridLayoutManager" row-count="1" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="67"/>
+            <preferred-size width="-1" height="67"/>
+            <maximum-size width="-1" height="67"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-8277888"/>
+          <foreground color="-16777216"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="ddde3" class="javax.swing.JButton" binding="button2" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="40" height="-1"/>
+                <preferred-size width="40" height="-1"/>
+                <maximum-size width="40" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-8277888"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="true"/>
+              <defaultCapable value="true"/>
+              <focusPainted value="false"/>
+              <icon value="img/diskette1.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="b7a6a" class="javax.swing.JButton" binding="button3" default-binding="true">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="40" height="-1"/>
+                <preferred-size width="40" height="-1"/>
+                <maximum-size width="40" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-8277888"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="true"/>
+              <defaultCapable value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="true"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="img/minus1.png"/>
+              <opaque value="false"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="c01a9" class="javax.swing.JButton" binding="button4" default-binding="true">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="40" height="-1"/>
+                <preferred-size width="40" height="-1"/>
+                <maximum-size width="40" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-8277888"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="true"/>
+              <defaultCapable value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="true"/>
+              <icon value="img/plus1.png"/>
+              <opaque value="false"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="ccc1c" class="javax.swing.JButton" binding="button5" default-binding="true">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="40" height="-1"/>
+                <preferred-size width="40" height="-1"/>
+                <maximum-size width="40" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-8277888"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="true"/>
+              <defaultCapable value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="true"/>
+              <icon value="img/edit1.png"/>
+              <opaque value="false"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="a7baa" class="javax.swing.JButton" binding="button6" default-binding="true">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="40" height="-1"/>
+                <preferred-size width="40" height="-1"/>
+                <maximum-size width="40" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-8277888"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="true"/>
+              <defaultCapable value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="true"/>
+              <icon value="img/search1.png"/>
+              <opaque value="false"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <hspacer id="dfb41">
+            <constraints>
+              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
