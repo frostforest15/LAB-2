@@ -5,39 +5,18 @@ import java.awt.event.FocusListener;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.border.AbstractBorder;
 
-public class RoundedJTextField extends JFormattedTextField {
+public class RoundedJComboBox extends JComboBox {
     private Shape shape;
     final int radius;
-    final String placeHolder;
-    public RoundedJTextField(int size, String placeHolder) {
+
+    public RoundedJComboBox(int size) {
         radius = size;
-        this.placeHolder = placeHolder;
         setOpaque(false); // As suggested by @AVD in comment.
-
-        addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                repaint();
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                repaint();
-            }
-        });
     }
     protected void paintComponent(Graphics g) {
         g.setColor(getBackground());
         g.fillRoundRect(0, 0, getWidth()-1, getHeight()-1, radius, radius);
         super.paintComponent(g);
-
-        if (getText().isEmpty() && !hasFocus()) {
-            Graphics2D g2d = (Graphics2D) g.create();
-            g2d.setColor(Color.BLACK);
-            //g2d.setFont(getFont().deriveFont(Font.ITALIC));
-            g2d.drawString(placeHolder, getInsets().left + 24, 24 + getInsets().top);
-            g2d.dispose();
-        }
     }
     protected void paintBorder(Graphics g) {
         g.setColor(getForeground());
