@@ -82,7 +82,7 @@
               <requestFocusEnabled value="true"/>
             </properties>
           </component>
-          <component id="3cd67" class="javax.swing.JFormattedTextField" binding="formattedTextField1" default-binding="true">
+          <component id="3cd67" class="javax.swing.JFormattedTextField" binding="formattedTextField1" custom-create="true" default-binding="true">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="0"/>
@@ -90,8 +90,8 @@
             </constraints>
             <properties>
               <background color="-8146303"/>
-              <caretColor color="-6564199"/>
-              <opaque value="false"/>
+              <caretColor color="-8146303"/>
+              <opaque value="true"/>
             </properties>
           </component>
         </children>

@@ -32,7 +32,13 @@ public class LAB_2 {
         table1.setModel(model);
 
         comboBox1.setBorder(null);
+
         formattedTextField1.setBorder(null);
+        formattedTextField1.setMinimumSize(new Dimension(238, 37));
+
+        comboBox1.setMinimumSize(new Dimension(238, 37));
+
+        button1.setMinimumSize(new Dimension(120, 37));
     }
 
     private void show() {
@@ -47,5 +53,10 @@ public class LAB_2 {
 
     public static void main(String[] args) {
         new LAB_2().show();
+    }
+
+    private void createUIComponents() {
+        formattedTextField1 = new RoundedJTextField(35, "Наименование жанра");
+
     }
 }
