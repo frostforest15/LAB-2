@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.awt.geom.RoundRectangle2D;
-import javax.swing.border.AbstractBorder;
 
 public class RoundedJScrollPane extends JScrollPane {
     private Shape shape;
@@ -11,7 +8,7 @@ public class RoundedJScrollPane extends JScrollPane {
 
     public RoundedJScrollPane(int size) {
         radius = size;
-        setOpaque(false); // As suggested by @AVD in comment.
+        setOpaque(false);
     }
     protected void paintComponent(Graphics g) {
         g.setColor(getBackground());

@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.geom.RoundRectangle2D;
-import javax.swing.border.AbstractBorder;
 
 public class RoundedJTextField extends JFormattedTextField {
     private Shape shape;
@@ -12,7 +11,7 @@ public class RoundedJTextField extends JFormattedTextField {
     public RoundedJTextField(int size, String placeHolder) {
         radius = size;
         this.placeHolder = placeHolder;
-        setOpaque(false); // As suggested by @AVD in comment.
+        setOpaque(false);
 
         addFocusListener(new FocusListener() {
             @Override
