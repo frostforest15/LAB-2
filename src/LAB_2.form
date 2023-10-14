@@ -63,7 +63,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="9f937" class="javax.swing.JButton" binding="button_find" custom-create="true">
+          <component id="9f937" class="javax.swing.JButton" binding="find_button" custom-create="true">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -123,7 +123,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="ddde3" class="javax.swing.JButton" binding="button_save">
+          <component id="ddde3" class="javax.swing.JButton" binding="save_button">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="-1"/>
@@ -142,7 +142,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="b7a6a" class="javax.swing.JButton" binding="button_delete">
+          <component id="b7a6a" class="javax.swing.JButton" binding="delete_button">
             <constraints>
               <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="-1"/>
@@ -164,7 +164,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="c01a9" class="javax.swing.JButton" binding="button_add">
+          <component id="c01a9" class="javax.swing.JButton" binding="add_button">
             <constraints>
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="-1"/>
@@ -185,7 +185,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="ccc1c" class="javax.swing.JButton" binding="button_edit">
+          <component id="ccc1c" class="javax.swing.JButton" binding="edit_button">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="-1"/>
@@ -206,7 +206,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="a7baa" class="javax.swing.JButton" binding="button_open">
+          <component id="a7baa" class="javax.swing.JButton" binding="open_button">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="-1"/>
