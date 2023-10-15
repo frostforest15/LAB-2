@@ -41,6 +41,7 @@ public class LAB_2 {
         scrollPane1.getViewport().setBackground(customColor);
 
         find_button.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(0, 0, 0, 28), find_button.getBorder()));
+
         save_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,6 +51,17 @@ public class LAB_2 {
             }
         });
 
+        delete_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRowIndex = table1.getSelectedRow();
+                if (selectedRowIndex != -1){
+                    model.removeRow(selectedRowIndex);
+                } else {
+                    System.out.println("Selected data is null");
+                }
+            }
+        });
     }
 
     private void show() {
@@ -58,6 +70,7 @@ public class LAB_2 {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
 
         save_button.setToolTipText("Сохранить как");
         open_button.setToolTipText("Найти файл в проводнике");
@@ -81,6 +94,7 @@ public class LAB_2 {
         String[][] data = {};
 
         String[] columns = {"Название", "Состав группы", "Год образ.", "Жанр", "Положение в хит-параде"};
+
 
         model = new DefaultTableModel(data, columns);
 

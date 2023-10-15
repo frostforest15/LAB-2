@@ -7,6 +7,7 @@
     </constraints>
     <properties>
       <foreground color="-8146303"/>
+      <inheritsPopupMenu value="false"/>
       <minimumSize width="1033" height="600"/>
       <preferredSize width="1033" height="600"/>
     </properties>
