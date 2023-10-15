@@ -17,6 +17,7 @@ public class LAB_2 {
     private JComboBox comboBox1;
     private JButton find_button, save_button, delete_button, add_button, edit_button, open_button;
     private JTable table1;
+    private JDialog addRowDialog;
     private JPanel Header;
     private JPanel Footer;
     private JScrollPane scrollPane1;
@@ -62,6 +63,13 @@ public class LAB_2 {
                 }
             }
         });
+        add_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addRowDialog.setVisible(true);
+                // TODO: write data to txt file on save button tapped
+            }
+        });
     }
 
     private void show() {
@@ -71,6 +79,59 @@ public class LAB_2 {
         frame.pack();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+
+        addRowDialog =  new JDialog(frame, "Новая запись", true);
+        addRowDialog.setLayout(new FlowLayout());
+        addRowDialog.setLocation(frame.getWidth() / 2 + 170, frame.getHeight() / 2);
+        addRowDialog.setSize(500, 500);
+
+        JTextField nameField = new JTextField(10);
+        JTextField membersField = new JTextField(10);
+        JTextField yearField = new JTextField(10);
+        JTextField genreField = new JTextField(10);
+        JTextField topField = new JTextField(10);
+        JButton addButton = new JButton("Добавить");
+        JButton cancelButton = new JButton("Отменить");
+
+        addRowDialog.add(new JLabel("Название:"));
+        addRowDialog.add(nameField);
+        addRowDialog.add(new JLabel("Состав группы:"));
+        addRowDialog.add(membersField);
+        addRowDialog.add(new JLabel("Год образования:"));
+        addRowDialog.add(yearField);
+        addRowDialog.add(new JLabel("Жанр:"));
+        addRowDialog.add(genreField);
+        addRowDialog.add(new JLabel("Положение в хит-параде:"));
+        addRowDialog.add(topField);
+        addRowDialog.add(addButton);
+        addRowDialog.add(cancelButton);
+
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nameData = nameField.getText();
+                String mambersData = membersField.getText();
+                String yearData = yearField.getText();
+                String genreData = genreField.getText();
+                String topData = topField.getText();
+
+                if (!nameData.isEmpty() &&
+                        !mambersData.isEmpty() &&
+                        !yearData.isEmpty() &&
+                        !genreData.isEmpty() &&
+                        !topData.isEmpty()) {
+                    model.addRow(new Object[]{nameData, mambersData, yearData, genreData, topData});
+                    addRowDialog.dispose();
+                }
+            }
+        });
+
+        cancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addRowDialog.dispose();
+            }
+        });
 
         save_button.setToolTipText("Сохранить как");
         open_button.setToolTipText("Найти файл в проводнике");
@@ -94,7 +155,6 @@ public class LAB_2 {
         String[][] data = {};
 
         String[] columns = {"Название", "Состав группы", "Год образ.", "Жанр", "Положение в хит-параде"};
-
 
         model = new DefaultTableModel(data, columns);
 
@@ -122,10 +182,8 @@ public class LAB_2 {
         headerRenderer.setPreferredSize(new Dimension(header.getWidth(), 44));
         headerRenderer.setHorizontalAlignment(JLabel.CENTER);
 
-
         for (int i = 0; i < table1.getModel().getColumnCount(); i++) {
             table1.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
         }
-
     }
 }
