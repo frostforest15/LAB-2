@@ -14,23 +14,21 @@ public class FileOpen extends JFrame {
         fileDialog.setFile(dataFile.getName());
         fileDialog.setVisible(true);
 
-        String filePath = fileDialog.getDirectory() + fileDialog.getFile();
+        String directory = fileDialog.getDirectory();
+        String fileName = fileDialog.getFile();
 
-        try {
-            loadFileData(filePath, table);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void loadFileData(String filePath, DefaultTableModel table) throws IOException {
-        table.setRowCount(0);
-
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] parts = line.split("\\|");
-                table.addRow(parts);
+        if (directory != null && fileName != null) {
+            String filePath = directory + fileName;
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(filePath));
+                table.setRowCount(0);
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String[] parts = line.split("\\|");
+                    table.addRow(parts);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
