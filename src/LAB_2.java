@@ -22,6 +22,7 @@ public class LAB_2 {
     private JPanel Footer;
     private JScrollPane scrollPane1;
     public LAB_2() {
+        Color customColor = Color.decode("#D3E8CA");
         comboBox1.setBorder(null);
 
         formattedTextField1.setBorder(null);
@@ -36,7 +37,6 @@ public class LAB_2 {
 
         find_button.setMinimumSize(new Dimension(120, 37));
 
-        Color customColor = Color.decode("#D3E8CA");
         scrollPane1.setBackground(customColor);
 
         scrollPane1.getViewport().setBackground(customColor);
@@ -63,11 +63,17 @@ public class LAB_2 {
                 }
             }
         });
+        
         add_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 addRowDialog.setVisible(true);
-                // TODO: write data to txt file on save button tapped
+            }
+        });
+        open_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FileOpen openFile = new FileOpen(model);
             }
         });
     }
@@ -81,9 +87,11 @@ public class LAB_2 {
         frame.setLocationRelativeTo(null);
 
         addRowDialog =  new JDialog(frame, "Новая запись", true);
-        addRowDialog.setLayout(new FlowLayout());
         addRowDialog.setLocation(frame.getWidth() / 2 + 170, frame.getHeight() / 2);
+        addRowDialog.setLayout(new FlowLayout());
         addRowDialog.setSize(500, 500);
+
+        addRowDialog.getContentPane().setBackground(new Color(179,221,161));
 
         JTextField nameField = new JTextField(10);
         JTextField membersField = new JTextField(10);
@@ -93,18 +101,20 @@ public class LAB_2 {
         JButton addButton = new JButton("Добавить");
         JButton cancelButton = new JButton("Отменить");
 
-        addRowDialog.add(new JLabel("Название:"));
-        addRowDialog.add(nameField);
-        addRowDialog.add(new JLabel("Состав группы:"));
-        addRowDialog.add(membersField);
-        addRowDialog.add(new JLabel("Год образования:"));
-        addRowDialog.add(yearField);
-        addRowDialog.add(new JLabel("Жанр:"));
-        addRowDialog.add(genreField);
-        addRowDialog.add(new JLabel("Положение в хит-параде:"));
-        addRowDialog.add(topField);
-        addRowDialog.add(addButton);
-        addRowDialog.add(cancelButton);
+        Font font = new Font("Verdana", Font.PLAIN, 14);
+
+        addRowDialog.add(new JLabel("Название:")).setFont(font);
+        addRowDialog.add(nameField).setFont(font);
+        addRowDialog.add(new JLabel("Состав группы:")).setFont(font);
+        addRowDialog.add(membersField).setFont(font);
+        addRowDialog.add(new JLabel("Год образования:")).setFont(font);
+        addRowDialog.add(yearField).setFont(font);
+        addRowDialog.add(new JLabel("Жанр:")).setFont(font);
+        addRowDialog.add(genreField).setFont(font);
+        addRowDialog.add(new JLabel("Положение в хит-параде:")).setFont(font);
+        addRowDialog.add(topField).setFont(font);
+        addRowDialog.add(addButton).setFont(font);
+        addRowDialog.add(cancelButton).setFont(font);
 
         addButton.addActionListener(new ActionListener() {
             @Override
