@@ -76,6 +76,74 @@ public class LAB_2 {
                 FileOpen openFile = new FileOpen(model);
             }
         });
+        edit_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRowIndex = table1.getSelectedRow();
+
+                if (selectedRowIndex != -1) {
+                    String nameData = (String) model.getValueAt(selectedRowIndex, 0);
+                    String membersData = (String) model.getValueAt(selectedRowIndex, 1);
+                    String yearData = (String) model.getValueAt(selectedRowIndex, 2);
+                    String genreData = (String) model.getValueAt(selectedRowIndex, 3);
+                    String topData = (String) model.getValueAt(selectedRowIndex, 4);
+
+                    JDialog editRowDialog = new JDialog();
+                    editRowDialog.setTitle("Редактирование записи");
+                    editRowDialog.setLocation(715, 265);
+                    editRowDialog.setLayout(new FlowLayout());
+                    editRowDialog.setSize(500, 500);
+                    editRowDialog.getContentPane().setBackground(new Color(179,221,161));
+                    editRowDialog.setResizable(false);
+
+                    JTextField nameField = new JTextField(nameData);
+                    JTextField membersField = new JTextField(membersData);
+                    JTextField yearField = new JTextField(yearData);
+                    JTextField genreField = new JTextField(genreData);
+                    JTextField topField = new JTextField(topData);
+                    JButton saveButton = new JButton("Сохранить");
+                    JButton cancelButton = new JButton("Отменить");
+
+                    Font font = new Font("Verdana", Font.PLAIN, 14);
+
+                    editRowDialog.add(new JLabel("Название:")).setFont(font);
+                    editRowDialog.add(nameField).setFont(font);
+                    editRowDialog.add(new JLabel("Состав группы:")).setFont(font);
+                    editRowDialog.add(membersField).setFont(font);
+                    editRowDialog.add(new JLabel("Год образования:")).setFont(font);
+                    editRowDialog.add(yearField).setFont(font);
+                    editRowDialog.add(new JLabel("Жанр:")).setFont(font);
+                    editRowDialog.add(genreField).setFont(font);
+                    editRowDialog.add(new JLabel("Положение в хит-параде:")).setFont(font);
+                    editRowDialog.add(topField).setFont(font);
+                    editRowDialog.add(saveButton).setFont(font);
+                    editRowDialog.add(cancelButton).setFont(font);
+
+                    saveButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            model.setValueAt(nameField.getText(), selectedRowIndex, 0);
+                            model.setValueAt(membersField.getText(), selectedRowIndex, 1);
+                            model.setValueAt(yearField.getText(), selectedRowIndex, 2);
+                            model.setValueAt(genreField.getText(), selectedRowIndex, 3);
+                            model.setValueAt(topField.getText(), selectedRowIndex, 4);
+
+                            editRowDialog.dispose();
+                        }
+                    });
+
+                    cancelButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            editRowDialog.dispose();
+                        }
+                    });
+                    editRowDialog.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Выберите запись для редактирования");
+                }
+            }
+        });
     }
 
     private void show() {
@@ -166,7 +234,12 @@ public class LAB_2 {
 
         String[] columns = {"Название", "Состав группы", "Год образ.", "Жанр", "Положение в хит-параде"};
 
-        model = new DefaultTableModel(data, columns);
+        model = new DefaultTableModel(data, columns){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
 
         try (BufferedReader br = new BufferedReader(new FileReader("src/data/data.txt"))) {
             String line;
