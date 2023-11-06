@@ -29,7 +29,7 @@ public class LAB_2 {
         formattedTextField1.setMinimumSize(new Dimension(238, 37));
 
         comboBox1.setMinimumSize(new Dimension(238, 37));
-        comboBox1.addItem("Группа");
+        comboBox1.addItem("Название");
         comboBox1.addItem("Состав группы");
         comboBox1.addItem("Год образ.");
         comboBox1.addItem("Жанр");
@@ -70,12 +70,14 @@ public class LAB_2 {
                 addRowDialog.setVisible(true);
             }
         });
+
         open_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 FileOpen openFile = new FileOpen(model);
             }
         });
+
         edit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -144,6 +146,15 @@ public class LAB_2 {
                 }
             }
         });
+
+        SearchHandler searchHandler = new SearchHandler(model, comboBox1, formattedTextField1, table1);
+
+        find_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                searchHandler.performSearch();
+            }
+        });
     }
 
     private void show() {
@@ -153,13 +164,14 @@ public class LAB_2 {
         frame.pack();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
 
         addRowDialog =  new JDialog(frame, "Новая запись", true);
-        addRowDialog.setLocation(frame.getWidth() / 2 + 170, frame.getHeight() / 2);
+        addRowDialog.setLocation(frame.getWidth() / 2 + 170, frame.getHeight() / 2 - 55);
         addRowDialog.setLayout(new FlowLayout());
         addRowDialog.setSize(500, 500);
-
         addRowDialog.getContentPane().setBackground(new Color(179,221,161));
+        addRowDialog.setResizable(false);
 
         JTextField nameField = new JTextField(10);
         JTextField membersField = new JTextField(10);
@@ -224,7 +236,7 @@ public class LAB_2 {
     }
 
     private void createUIComponents() {
-        formattedTextField1 = new RoundedJTextField(35, "Наименование жанра");
+        formattedTextField1 = new RoundedJTextField(35, "Поле для ввода");
         find_button = new RoundedJButton(35);
         comboBox1 = new RoundedJComboBox(35);
         scrollPane1 = new RoundedJScrollPane(35);
@@ -235,6 +247,7 @@ public class LAB_2 {
         String[] columns = {"Название", "Состав группы", "Год образ.", "Жанр", "Положение в хит-параде"};
 
         model = new DefaultTableModel(data, columns){
+            // Restrict direct table row editing
             @Override
             public boolean isCellEditable(int row, int column){
                 return false;
