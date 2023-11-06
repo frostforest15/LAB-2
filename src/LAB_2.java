@@ -59,7 +59,7 @@ public class LAB_2 {
                 if (selectedRowIndex != -1){
                     model.removeRow(selectedRowIndex);
                 } else {
-                    System.out.println("Selected data is null");
+                    JOptionPane.showMessageDialog(null, "Выберите запись для удаления");
                 }
             }
         });
@@ -130,7 +130,36 @@ public class LAB_2 {
                             model.setValueAt(genreField.getText(), selectedRowIndex, 3);
                             model.setValueAt(topField.getText(), selectedRowIndex, 4);
 
-                            editRowDialog.dispose();
+                            String nameData = nameField.getText();
+                            String membersData = membersField.getText();
+                            String yearData = yearField.getText();
+                            String genreData = genreField.getText();
+                            String topData = topField.getText();
+
+                            if (nameData.matches(".*\\d.*") || membersData.matches(".*\\d.*") || genreData.matches(".*\\d.*")) {
+                                JOptionPane.showMessageDialog(null, "Введите корректные данные", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                            } else if (nameData.isEmpty() || membersData.isEmpty() || yearData.isEmpty() || genreData.isEmpty() || topData.isEmpty()) {
+                                JOptionPane.showMessageDialog(null, "Заполните все поля!", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                            } else {
+                                try {
+                                    int yearDataInt = Integer.parseInt(yearData);
+                                    int topDataInt = Integer.parseInt(topData);
+
+                                    if (yearDataInt < 1900 || yearDataInt > 2023) {
+                                        JOptionPane.showMessageDialog(null, "Введите год образования в допустимом диапазоне (1900-2023)", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                                    } else {
+                                        nameField.setText("");
+                                        membersField.setText("");
+                                        yearField.setText("");
+                                        genreField.setText("");
+                                        topField.setText("");
+
+                                        editRowDialog.dispose();
+                                    }
+                                } catch (NumberFormatException ex) {
+                                    JOptionPane.showMessageDialog(null, "Введите корректные числовые данные", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                                }
+                            }
                         }
                     });
 
@@ -200,18 +229,36 @@ public class LAB_2 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String nameData = nameField.getText();
-                String mambersData = membersField.getText();
+                String membersData = membersField.getText();
                 String yearData = yearField.getText();
                 String genreData = genreField.getText();
                 String topData = topField.getText();
 
-                if (!nameData.isEmpty() &&
-                        !mambersData.isEmpty() &&
-                        !yearData.isEmpty() &&
-                        !genreData.isEmpty() &&
-                        !topData.isEmpty()) {
-                    model.addRow(new Object[]{nameData, mambersData, yearData, genreData, topData});
-                    addRowDialog.dispose();
+                if (nameData.matches(".*\\d.*") || membersData.matches(".*\\d.*") || genreData.matches(".*\\d.*")) {
+                    JOptionPane.showMessageDialog(null, "Введите корректные данные", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                } else if (nameData.isEmpty() || membersData.isEmpty() || yearData.isEmpty() || genreData.isEmpty() || topData.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Заполните все поля!", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    try {
+                        int yearDataInt = Integer.parseInt(yearData);
+                        int topDataInt = Integer.parseInt(topData);
+
+                        if (yearDataInt < 1900 || yearDataInt > 2023) {
+                            JOptionPane.showMessageDialog(null, "Введите год образования в допустимом диапазоне (1900-2023)", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        } else {
+                            model.addRow(new Object[]{nameData, membersData, yearDataInt, genreData, topDataInt});
+
+                            nameField.setText("");
+                            membersField.setText("");
+                            yearField.setText("");
+                            genreField.setText("");
+                            topField.setText("");
+
+                            addRowDialog.dispose();
+                        }
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Введите корректные числовые данные", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });

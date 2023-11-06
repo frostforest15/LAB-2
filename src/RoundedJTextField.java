@@ -25,6 +25,7 @@ public class RoundedJTextField extends JFormattedTextField {
             }
         });
     }
+
     protected void paintComponent(Graphics g) {
         g.setColor(getBackground());
         g.fillRoundRect(0, 0, getWidth()-1, getHeight()-1, radius, radius);
@@ -38,10 +39,12 @@ public class RoundedJTextField extends JFormattedTextField {
             g2d.dispose();
         }
     }
+
     protected void paintBorder(Graphics g) {
         g.setColor(getForeground());
         g.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, radius, radius);
     }
+
     public boolean contains(int x, int y) {
         if (shape == null || !shape.getBounds().equals(getBounds())) {
             shape = new RoundRectangle2D.Float(0, 0, getWidth()-1, getHeight()-1, radius, radius);

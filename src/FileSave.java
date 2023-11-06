@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+
 public class FileSave extends JFrame {
     public FileSave(String str, DefaultTableModel table) {
         FileDialog fileDialog = new FileDialog(this, str, FileDialog.SAVE);

@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import java.io.BufferedReader;
 import java.io.FileReader;
+
 public class FileOpen extends JFrame {
     public FileOpen(DefaultTableModel table) {
         FileDialog fileDialog = new FileDialog(this, "Выберите файл", FileDialog.LOAD);
