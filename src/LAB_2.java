@@ -6,9 +6,11 @@ import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.File;
+import java.util.List;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
 
 public class LAB_2 {
     private JPanel panel1;
@@ -47,7 +49,7 @@ public class LAB_2 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (table1.getModel().getRowCount() != 0) {
-                    FileSave file = new FileSave("Сохранение данных", model);
+                    FileSave fileSave = new FileSave(model);
                 }
             }
         });
@@ -289,28 +291,18 @@ public class LAB_2 {
         scrollPane1 = new RoundedJScrollPane(35);
         table1 = new JTable();
 
-        String[][] data = {};
-
         String[] columns = {"Название", "Состав группы", "Год образ.", "Жанр", "Положение в хит-параде"};
 
-        model = new DefaultTableModel(data, columns){
-            // Restrict direct table row editing
+        model = new DefaultTableModel(columns, 0) {
             @Override
-            public boolean isCellEditable(int row, int column){
+            public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
 
-        try (BufferedReader br = new BufferedReader(new FileReader("src/data/data.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] parts = line.split("\\|");
-                model.addRow(parts);
-            }
-            table1.setModel(model);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        readDataFromXML("src/data/data.xml");
+
+        table1.setModel(model);
 
         DefaultTableCellRenderer centerRend = (DefaultTableCellRenderer) table1.getDefaultRenderer(String.class);
         centerRend.setHorizontalAlignment(JLabel.CENTER);
@@ -327,6 +319,28 @@ public class LAB_2 {
 
         for (int i = 0; i < table1.getModel().getColumnCount(); i++) {
             table1.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
+        }
+    }
+
+    private void readDataFromXML(String filePath) {
+        try {
+            SAXBuilder saxBuilder = new SAXBuilder();
+            Document document = saxBuilder.build(new File(filePath));
+
+            Element rootElement = document.getRootElement();
+            List<Element> musicElements = rootElement.getChildren("music");
+
+            for (Element musicElement : musicElements) {
+                String name = musicElement.getAttributeValue("name");
+                String members = musicElement.getAttributeValue("members");
+                String year = musicElement.getAttributeValue("year");
+                String genre = musicElement.getAttributeValue("genre");
+                String top = musicElement.getAttributeValue("top");
+
+                model.addRow(new Object[]{name, members, year, genre, top});
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

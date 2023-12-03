@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<musiclist>
+        <music name="Linkin Park" members = "Честер Бенингтон, Майк Шинод" year="1996" genre="Альтернативный метал" top="16" />
+        <music name="Imagine Dragons" members = "Дэн Рейнольдс, Уэйн Сермон" year="1981" genre="Поп-рок" top="37" />
+        <music name="Manowar" members = "Эрик Адамс, Скотт Коламбус" year="1986" genre="Пауэр-метал" top="1" />
+        <music name="Nickelback" members = "Чед Крюгер, Райан Пик" year="1995" genre="Альтернативный метал" top="7" />
+</musiclist>
